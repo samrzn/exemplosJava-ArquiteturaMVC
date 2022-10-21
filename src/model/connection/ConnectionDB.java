@@ -11,7 +11,7 @@ public class ConnectionDB {
  */ 
 	// declaração "static final" define variável imutável.
 	private static final String USERNAME = "root";
-	private static final String PASSWORD = "";
+	private static final String PASSWORD = "4nti1106YOU*";
 
 	// caminho, porta e nome da base de dados que será conectada.
 	private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/crud";
