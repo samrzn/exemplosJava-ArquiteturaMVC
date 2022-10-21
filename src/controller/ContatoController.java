@@ -29,7 +29,7 @@ public class ContatoController {
 	public void excluirContato(Contato contato) throws Exception {
 		if(contato.getIdade() < 18)
 			throw new Exception("Seu usuário não tem permissão para excluir este cadastro.");
-		dao.save(contato);
+		dao.removeById(contato.getId());
 	}
 	
 	public void excluirContato(int id) throws Exception {

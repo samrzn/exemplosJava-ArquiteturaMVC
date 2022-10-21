@@ -1,7 +1,6 @@
 package model.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -14,8 +13,7 @@ public class ContatoDAO {
 
 	// query SQL para salvar dados - create.
 	public void save(Contato contato) {
-		String sql = "INSERT INTO CONTATOS(NOME, IDADE, DATACADASTRO)" 
-												  + "VALUES(?, ?, ?)";
+		String sql = "INSERT INTO CONTATOS(NOME, IDADE) VALUES(?, ?)";
 		Connection conx = null;
 		PreparedStatement pdst = null;
 		try {
@@ -23,7 +21,6 @@ public class ContatoDAO {
 			pdst = conx.prepareStatement(sql);
 			pdst.setString(1, contato.getNome());
 			pdst.setInt(2, contato.getIdade());
-			pdst.setDate(3, new Date(contato.getDataCadastro().getTime()));
 			pdst.execute();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -68,8 +65,7 @@ public class ContatoDAO {
 
 	// query SQL para atualizar dados - update.
 	public void update(Contato contato) {
-		String sql = "UPDATE CONTATOS SET NOME = ?, IDADE = ?," 
-							+ " DATACADASTRO = ? WHERE ID = ?";
+		String sql = "UPDATE CONTATOS SET NOME = ?, IDADE = ? WHERE ID = ?";
 		Connection conx = null;
 		PreparedStatement pdst = null;
 		try {
@@ -77,8 +73,7 @@ public class ContatoDAO {
 			pdst = conx.prepareStatement(sql);
 			pdst.setString(1, contato.getNome());
 			pdst.setInt(2, contato.getIdade());
-			pdst.setDate(3, new Date(contato.getDataCadastro().getTime()));
-			pdst.setInt(4, contato.getId());
+			pdst.setInt(3, contato.getId());
 			pdst.execute();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -151,7 +146,6 @@ public class ContatoDAO {
 					contato.setId(rset.getInt("ID"));
 					contato.setNome(rset.getString("NOME"));
 					contato.setIdade(rset.getInt("IDADE"));
-					contato.setDataCadastro(rset.getDate("DATACADASTRO"));
 				}
 			} catch (Exception ex) {
 				ex.printStackTrace();
