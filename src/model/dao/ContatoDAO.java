@@ -7,8 +7,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.crud.factory.ConnectionFactory;
-import br.com.crud.model.ContatoModel;
 import model.Contato;
 import model.connection.ConnectionDB;
 
@@ -45,6 +43,7 @@ public class ContatoDAO {
 	// query SQL para remover dados - delete.
 	public void removeById(int id) {
 		String sql = "DELETE FROM CONTATOS WHERE ID = ?";
+		
 		Connection conx = null;
 		PreparedStatement pdst = null;
 		try {
@@ -99,6 +98,7 @@ public class ContatoDAO {
 	// query SQL para exibir dados - read.
 	public List<Contato> getContatoModel() {
 		String sql = "SELECT * FROM CONTATOS";
+		
 		List<Contato> contatos = new ArrayList<>();
 		Connection conx = null;
 		PreparedStatement pdst = null;
@@ -133,6 +133,43 @@ public class ContatoDAO {
 		return contatos;
 	}
 
+	// query SQL para exibir dados específicos - read.
+		public Contato getContatoById(int id) {
+			String sql = "SELECT * FROM CONTATOS WHERE ID = ?";
+			
+			Contato contato = null;
+			Connection conx = null;
+			PreparedStatement pdst = null;
+			ResultSet rset = null;
+			try {
+				conx = ConnectionDB.createConnectionToMySQL();
+				pdst = conx.prepareStatement(sql);
+				pdst.setInt(1, id);
+				rset = pdst.executeQuery();
+				if (rset.next()) {
+					contato = new Contato();
+					contato.setId(rset.getInt("ID"));
+					contato.setNome(rset.getString("NOME"));
+					contato.setIdade(rset.getInt("IDADE"));
+					contato.setDataCadastro(rset.getDate("DATACADASTRO"));
+				}
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			} finally {
+				// encerra conexão após executar a query.
+				try {
+					if (rset != null)
+						rset.close();
+					if (pdst != null)
+						pdst.close();
+					if (conx != null)
+						conx.close();
+				} catch (Exception ex) {
+					ex.printStackTrace();
+				}
+			}
+			return contato;
+		}
 
 	public static void main(String[] args) {
 		

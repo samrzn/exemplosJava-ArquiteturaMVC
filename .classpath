@@ -11,5 +11,6 @@
 	<classpathentry kind="lib" path="C:/Users/Remakker/Downloads/UCanAccess-5.0.1.bin/UCanAccess-5.0.1.bin/lib/commons-logging-1.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Remakker/Downloads/UCanAccess-5.0.1.bin/UCanAccess-5.0.1.bin/lib/hsqldb-2.5.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Remakker/Downloads/UCanAccess-5.0.1.bin/UCanAccess-5.0.1.bin/lib/jackcess-3.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Remakker/Downloads/mysql-connector-java-8.0.30/mysql-connector-java-8.0.30/mysql-connector-java-8.0.30.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -2,17 +2,16 @@ package model.connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class ConnectionDB {
 
 /* conexão com banco de dados mySQL através do driver JDBC - Connector/J:
- * 
+ */ 
 	// declaração "static final" define variável imutável.
 	private static final String USERNAME = "root";
-	private static final String PASSWORD = "m3lo0698Dram4*";
+	private static final String PASSWORD = "";
 
 	// caminho, porta e nome da base de dados que será conectada.
 	private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/crud";
@@ -27,7 +26,7 @@ public class ConnectionDB {
 		// método de conexão com o banco de dados através do driver.
 		Connection conn = DriverManager.getConnection(DATABASE_URL, USERNAME, PASSWORD);
 		return conn;
-	} */
+	}
 	
 /* conexão com banco de dados Access através do driver JDBC - UCanAccess:
  */
@@ -45,12 +44,12 @@ public class ConnectionDB {
 	public static void main(String[] args) throws Exception {
 
 /* teste de validade da conexão com banco de dados mySQL:
- * 
+ */ 
 		// teste de validade da conexão.
 		System.out.println("Iniciando teste ConnectionFactory.");
 		Connection conx = createConnectionToMySQL();
 		if (conx != null) {
-			System.out.println("Conexão estabelecida!");
+			System.out.println("Conexão mySQL estabelecida!");
 			
 			// teste de funcionamento da conexão.
 			Statement st = conx.createStatement();
@@ -61,18 +60,18 @@ public class ConnectionDB {
 			}
 			st.close();
 			conx.close();
-			System.out.println("Fim da conexão.");
-		} */
+			System.out.println("Fim da conexão mySQL.");
+		} 
 		
 /* teste de validade da conexão com banco de dados Access:
 */
-		Connection conx = createConnectionToAccess();
-		if (conx != null) {
+		Connection connect = createConnectionToAccess();
+		if (connect != null) {
 			System.out.println("Conexão Access estabelecida!");
-			Statement stm = conx.createStatement();
+			Statement stm = connect.createStatement();
 
-		// query CREATE:
-			/*PreparedStatement pdst = conx.prepareStatement("INSERT INTO FRUIT "+
+		/* query CREATE:
+			PreparedStatement pdst = connect.prepareStatement("INSERT INTO FRUIT "+
 			                          		"(FRUTA, QUANTIDADE) VALUES (?, ?)");
 			pdst.setString(1, "Abacaxi");
 			pdst.setInt(2, 700);
@@ -87,14 +86,14 @@ public class ConnectionDB {
 			}
 			stm.close();
 			
-		// query DELETE:
+		/* query DELETE:
 			PreparedStatement pds = conx.prepareStatement(
                     "DELETE FROM FRUIT WHERE FRUTA = ?");
 			pds.setString(1, "Abacaxi");
 			pds.execute();
 			pds.close();
-			
-			conx.close();
+*/			
+			connect.close();
 			System.out.println("Fim da conexão Access.");
 		}
 	}
