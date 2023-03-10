@@ -172,4 +172,4 @@ public class ContatoDAO {
 		for (Contato c1 : dao.getContatoModel())
 			System.out.println(c1.getNome() + " -> " + c1.getIdade());
 	}
-}
+} 

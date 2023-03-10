@@ -76,4 +76,4 @@ public class ConsoleView {
 		System.out.println(" ====== APLICAÇÃO ENCERRADA ====== ");
 		in.close();
 	}
-}
+} 

@@ -69,4 +69,4 @@ public class ContatoController {
 			JOptionPane.showMessageDialog(null, ex.getMessage());
 		}
 	}
-}
+} 

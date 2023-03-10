@@ -238,4 +238,3 @@ public class JanelaAgenda extends javax.swing.JDialog {
     private javax.swing.JList<Compromisso> lstCompromissos;
     // End of variables declaration                   
 }
-

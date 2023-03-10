@@ -254,4 +254,4 @@ public class AppViewGUI extends javax.swing.JFrame {
 	private javax.swing.JSpinner spnIdade;
 	private javax.swing.JTextField txtNome;
 
-}
+} 
