@@ -41,7 +41,7 @@
 <img align="center" alt="Java" height="35" width="45" src="https://cdn.icon-icons.com/icons2/2415/PNG/512/java_original_logo_icon_146458.png" />
 <img align="center" alt="Eclipse" height="35" width="35" src="https://cdn.icon-icons.com/icons2/1381/PNG/512/eclipse_94656.png" />
 <img align="center" alt="MySQL" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-plain.svg" />
-<img align="center" alt="Access" height="30" width="40" src="https://cdn.icon-icons.com/icons2/2397/PNG/512/microsoft_office_access_logo_icon_145727.png" />
+<img align="center" alt="Access" height="30" width="32" src="https://cdn.icon-icons.com/icons2/2397/PNG/512/microsoft_office_access_logo_icon_145727.png" />
 
 
 
